@@ -9,7 +9,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 
 public class MenuState implements State{
     private GameStateManager gsm;
-    private int currentChoice;
+    private int currentChoice = 1;
     private String[] options = {
             "Play",
             "Instructions",
@@ -34,7 +34,7 @@ public class MenuState implements State{
         g.putString(10,10,"Super Mario");
 
         for(int i = 0; i < options.length; i++){
-            if(i == currentChoice){
+            if(i + 1 == currentChoice){
                 g.setForegroundColor(TextColor.Factory.fromString("RED"));
             }else{
                 g.setForegroundColor(TextColor.Factory.fromString("WHITE"));
@@ -49,14 +49,14 @@ public class MenuState implements State{
             case Enter -> select();
             case ArrowUp -> {
                 currentChoice--;
-                if(currentChoice == -1){
-                    currentChoice = options.length - 1;
+                if(currentChoice == 0){
+                    currentChoice = options.length;
                 }
             }
             case ArrowDown-> {
                 currentChoice++;
-                if(currentChoice == options.length){
-                    currentChoice = 0;
+                if(currentChoice == options.length + 1){
+                    currentChoice = 1;
                 }
             }
         }
@@ -67,16 +67,17 @@ public class MenuState implements State{
     public void keyReleased() {}
 
     public void select(){
+        System.out.println(currentChoice);
         switch (currentChoice){
-            case 0:
+            case 1:
                 gsm.setState(currentChoice);
                 System.out.println("start");
                 break;
-            case 1:
+            case 2:
                 gsm.setState(currentChoice);
                 System.out.println("instruct");
                 break;
-            case 2:
+            case 3:
                 System.exit(0);
                 break;
         }

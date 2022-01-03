@@ -8,6 +8,7 @@ public class InstructionsState implements State{
     public InstructionsState(GameStateManager gsm){
         this.gsm = gsm;
     }
+
     private String[] rules = {
             "Rule 1",
             "Rule 2 ",

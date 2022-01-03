@@ -10,7 +10,9 @@ public class GameStateManager {
     private int currentState;
 
     private int MENUSTATE = 0;
-    private int INSTRUCTSTATE = 1;
+    private int SELECTLEVELSTATE = 1;
+    private int INSTRUCTSTATE = 2;
+
 
     public GameStateManager(){
         gameStates = new ArrayList<State>();
@@ -18,7 +20,9 @@ public class GameStateManager {
         currentState = MENUSTATE;
 
         gameStates.add(new MenuState(this));
+        gameStates.add(new SelectLevelState(this));
         gameStates.add(new InstructionsState(this));
+
     }
 
     public void setState(int state){
