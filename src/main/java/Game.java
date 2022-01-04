@@ -9,8 +9,8 @@ import java.io.IOException;
 
 public class Game implements Runnable{
     private Screen screen;
-    private int TERMINALCOLS = 190;
-    private int TERMINALROWS = 50;
+    private int TERMINALCOLS = 147;
+    private int TERMINALROWS = 40;
     private boolean isRunnig;
     private GameStateManager gsm;
 

@@ -1,5 +1,6 @@
 package GameState;
 
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import java.util.ArrayList;
@@ -30,8 +31,8 @@ public class GameStateManager {
         gameStates.get(currentState).init();
     }
 
-    public void draw(TextGraphics g){
-        gameStates.get(currentState).draw(g);
+    public void draw(TextGraphics graphics){
+        gameStates.get(currentState).draw(graphics);
     }
 
     public void keyPressed(KeyStroke key) {

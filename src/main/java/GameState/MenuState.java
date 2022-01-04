@@ -67,7 +67,6 @@ public class MenuState implements State{
     public void keyReleased() {}
 
     public void select(){
-        System.out.println(currentChoice);
         switch (currentChoice){
             case 1:
                 gsm.setState(currentChoice);

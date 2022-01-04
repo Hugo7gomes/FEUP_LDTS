@@ -1,5 +1,6 @@
 package GameState;
 
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 
@@ -17,7 +18,7 @@ public class LevelState implements State{
     @Override
     public void init() {
         arena = new Arena(ARENABLOCKSROW,ARENABLOCKSCOLS);
-        //arena.loadMap("level1.txt");
+        arena.init();
     }
 
     @Override
@@ -26,6 +27,7 @@ public class LevelState implements State{
     @Override
     public void draw(TextGraphics graphics) {
 
+        arena.draw(graphics);
     }
 
     @Override
