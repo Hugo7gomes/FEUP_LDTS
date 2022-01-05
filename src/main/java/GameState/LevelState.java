@@ -7,6 +7,8 @@ import com.googlecode.lanterna.input.KeyStroke;
 public class LevelState implements State{
     private int ARENABLOCKSROW;
     private int ARENABLOCKSCOLS;
+    private int level;
+    private String fileLevel;
 
     private GameStateManager gsm;
     private Arena arena;

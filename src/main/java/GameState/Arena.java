@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -21,6 +22,7 @@ public class Arena {
     private Block[][] frameAtual;
     private List<Block> blocks = new ArrayList<Block>();
     private BlockFactory blockFactory = new BlockFactory();
+    //private Map map;
     //private List<Enemy> enemys;
 
     public Arena(int width, int height){
@@ -58,7 +60,7 @@ public class Arena {
     }
 
     public void draw(TextGraphics graphics){
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#336699"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#87CEFA"));
         graphics.fillRectangle(new TerminalPosition(0,0), new TerminalSize(52*7, 8*5), ' ');
         for(Block b: blocks){
           if(b.isVisible()){

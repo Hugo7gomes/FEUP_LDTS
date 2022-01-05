@@ -47,7 +47,7 @@ public class GameStateManager {
         if(key == null){
             keyReleased();
         }else{
-        keyPressed(key);
+            keyPressed(key);
         }
     }
 }

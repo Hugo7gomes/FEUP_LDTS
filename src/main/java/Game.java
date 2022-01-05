@@ -4,8 +4,14 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.googlecode.lanterna.terminal.swing.SwingTerminalFontConfiguration;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class Game implements Runnable{
     private Screen screen;
@@ -15,11 +21,11 @@ public class Game implements Runnable{
     private GameStateManager gsm;
 
     public Game(){
+        gsm = new GameStateManager();
         try {
-            gsm = new GameStateManager();
-            TerminalSize terminalSize = new TerminalSize(TERMINALCOLS, TERMINALROWS);
-            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-            Terminal terminal = terminalFactory.createTerminal();
+            DefaultTerminalFactory factory = new DefaultTerminalFactory();
+            factory.setInitialTerminalSize(new TerminalSize(TERMINALCOLS, TERMINALROWS));
+            Terminal terminal = factory.createTerminal();
             screen = new TerminalScreen(terminal);
             screen.setCursorPosition(null);
             screen.startScreen();
