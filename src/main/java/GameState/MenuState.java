@@ -16,6 +16,10 @@ public class MenuState implements State{
             "Exit"
     };
 
+    public int getCurrentChoice() {
+        return currentChoice;
+    }
+
     public MenuState(GameStateManager gsm){
         this.gsm = gsm;
     }

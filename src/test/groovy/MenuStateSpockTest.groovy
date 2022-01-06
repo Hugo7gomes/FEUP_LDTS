@@ -1,56 +1,65 @@
 import GameState.GameStateManager
+import GameState.MenuState
 import com.googlecode.lanterna.input.KeyType
+import spock.lang.Specification
 
-class MenuStateSpockTest {
-    private GameStateManager gsm
+class MenuStateSpockTest extends Specification{
+    private MenuState ms
+    GameStateManager gsm = new GameStateManager()
 
     def setup(){
-        gsm = new GameStateManager()
-        gsm.setState(0)
+
+        ms = new MenuState(gsm)
     }
 
     def ' Basic test input ArrowDown'(){
         given:
             def key = new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowDown)
+            int choice = ms.getCurrentChoice()
 
         when:
-            gsm.keyPressed(key)
+            ms.keyPressed(key)
+
         then:
-            gsm.getGameStates().get(0).getCurrentChoice() == gsm.getGameStates().get(0).getCurrentChoice() + 1
+            ms.getCurrentChoice() == choice + 1
     }
 
     def 'Bottom position test input ArrowDown'(){
         given:
             def key = new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowDown)
+            ms.setCurrentChoice(ms.getOptions().size())
 
         when:
-            gsm.getGameStates().get(0).setCurrentChoice(gsm.getGameStates().length)
-            gsm.keyPressed(key)
+            ms.keyPressed(key)
+
         then:
-            gsm.getGameStates().get(0).getCurrentChoice() == 1
+            ms.getCurrentChoice() == 1
     }
 
     def 'Basic test input ArrowUp'(){
         given:
             def key = new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowUp)
+            ms.setCurrentChoice(ms.getOptions().size())
+            int choice = ms.getCurrentChoice()
 
         when:
-            gsm.getGameStates().get(0).setCurrentChoice(2)
-            gsm.keyPressed(key)
+            ms.keyPressed(key)
+
         then:
-            gsm.getGameStates().get(0).getCurrentChoice() == gsm.getGameStates().get(0).getCurrentChoice() - 1
+            ms.getCurrentChoice() == choice - 1
     }
 
 
     def 'Top position test input ArrowUp'(){
         given:
             def key = new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowUp)
+            gsm.getGameStates().get(0).setCurrentChoice(1)
 
         when:
-            gsm.getGameStates().get(0).setCurrentChoice(1)
             gsm.keyPressed(key)
+
         then:
-            gsm.getGameStates().get(0).getCurrentChoice() == gsm.getGameStates().length
+            ms.getCurrentChoice() == ms.getOptions().size()
     }
 
     def 'test input Enter'(){

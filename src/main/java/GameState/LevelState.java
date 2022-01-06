@@ -17,6 +17,7 @@ public class LevelState implements State{
         this.gsm = gsm;
     }
 
+
     @Override
     public void init() {
         arena = new Arena(ARENABLOCKSROW,ARENABLOCKSCOLS);
