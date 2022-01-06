@@ -11,7 +11,6 @@ import com.googlecode.lanterna.graphics.TextImage;
 public class GrassBlock extends Block {
     public GrassBlock(int row, int col) {
         super(row, col);
-        this.image = buildImage();
     }
 
     @Override

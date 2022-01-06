@@ -14,6 +14,7 @@ public class BrickBlock extends Block {
         super(row, col);
     }
 
+
     @Override
     public TextImage buildImage() {
         TextCharacter ch = new TextCharacter('|', TextColor.Factory.fromString("#C4A484"),TextColor.Factory.fromString("#964B00"), SGR.BOLD);

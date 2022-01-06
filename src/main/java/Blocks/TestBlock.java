@@ -79,7 +79,6 @@ public class TestBlock extends Block {
         image.setCharacterAt(4,9,blue);
         image.setCharacterAt(2,9,blue);
 
-
         return image;
     }
 }

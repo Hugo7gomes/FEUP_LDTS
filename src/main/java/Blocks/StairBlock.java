@@ -11,7 +11,6 @@ import com.googlecode.lanterna.graphics.TextImage;
 public class StairBlock extends Block {
     public StairBlock(int row, int col) {
         super(row, col);
-        this.image = buildImage();
     }
 
     @Override

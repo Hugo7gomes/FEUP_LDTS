@@ -20,7 +20,7 @@ public class BlockFactory {
                 System.out.println("stair");
                 return new StairBlock(row, col);
             case 4:
-                System.out.println("stair");
+                System.out.println("test");
                 return new TestBlock(row, col);
 
         }
