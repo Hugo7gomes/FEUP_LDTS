@@ -3,7 +3,7 @@ import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
 
 class PlayerSpockTest extends Specification{
-    Player player = new Player()
+    Player player = new Player(10,0)
 
     def 'ArrowLeft Test'(){
         given:
@@ -28,6 +28,6 @@ class PlayerSpockTest extends Specification{
         then:
             player.getIsLeft() == false
             player.getVx() == 5
-            player.getPosition().getX() == x + 1
+            player.getPosition().getX() == x + 5
     }
 }
