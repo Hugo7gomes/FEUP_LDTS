@@ -16,6 +16,14 @@ public class MenuState implements State{
             "Exit"
     };
 
+    public void setCurrentChoice(int currentChoice) {
+        this.currentChoice = currentChoice;
+    }
+
+    public String[] getOptions(){
+        return options;
+    }
+
     public int getCurrentChoice() {
         return currentChoice;
     }

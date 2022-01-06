@@ -8,7 +8,6 @@ class MenuStateSpockTest extends Specification{
     GameStateManager gsm = new GameStateManager()
 
     def setup(){
-
         ms = new MenuState(gsm)
     }
 
@@ -53,10 +52,10 @@ class MenuStateSpockTest extends Specification{
     def 'Top position test input ArrowUp'(){
         given:
             def key = new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowUp)
-            gsm.getGameStates().get(0).setCurrentChoice(1)
+            ms.setCurrentChoice(1)
 
         when:
-            gsm.keyPressed(key)
+            ms.keyPressed(key)
 
         then:
             ms.getCurrentChoice() == ms.getOptions().size()
