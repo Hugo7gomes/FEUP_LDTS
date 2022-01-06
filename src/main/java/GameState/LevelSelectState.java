@@ -10,7 +10,6 @@ public class LevelSelectState implements State{
     private int currentChoice = 1;
     private int NUMLEVELS = 6;
     private GameStateManager gsm;
-    private Arena arena;
 
     public LevelSelectState(GameStateManager gsm){
         this.gsm = gsm;
@@ -18,9 +17,7 @@ public class LevelSelectState implements State{
 
 
     @Override
-    public void init() {
-        arena = new Arena(gsm);
-    }
+    public void init() {}
 
     @Override
     public void update() {}
