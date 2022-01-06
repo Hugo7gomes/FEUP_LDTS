@@ -6,7 +6,7 @@ import spock.lang.Specification
 import javax.swing.KeyStroke
 
 class GameStateManagerSpockTest extends Specification{
-    private def gsm
+    private GameStateManager gsm
 
     def setup(){
         gsm = new GameStateManager();
