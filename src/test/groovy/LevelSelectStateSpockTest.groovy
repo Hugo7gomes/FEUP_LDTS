@@ -1,14 +1,18 @@
 import GameState.GameStateManager
+import GameState.LevelSelectState
+import GameState.LevelState
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
 
 class LevelSelectStateSpockTest extends Specification{
-    private LevelSelect ls
+    LevelSelectState ls
     GameStateManager gsm = new GameStateManager()
+    LevelState level
 
     def setup(){
-        ls = new LevelSelect()
+        ls = new LevelSelectState(gsm)
+        level = new LevelState(gsm)
     }
 
     def ' Basic test input ArrowDown'(){
@@ -68,7 +72,7 @@ class LevelSelectStateSpockTest extends Specification{
             ls.keyPressed(key)
 
         then:
-            arena.getLevel() == ls.getCurrentChoice()
+            level.getLevel() == ls.getCurrentChoice()
 
     }
 }

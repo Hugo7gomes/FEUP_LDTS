@@ -1,6 +1,5 @@
 package GameState;
 
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import java.util.ArrayList;
@@ -11,8 +10,10 @@ public class GameStateManager {
     private int currentState;
 
     private int MENUSTATE = 0;
-    private int LEVEL1STATE = 1;
+    private int SELECTLEVELSTATE = 1;
     private int INSTRUCTSTATE = 2;
+    private int LEVELSTATE = 3;
+
 
 
     public GameStateManager(){
@@ -21,9 +22,14 @@ public class GameStateManager {
         currentState = MENUSTATE;
 
         gameStates.add(new MenuState(this));
-        gameStates.add(new LevelState(this));
+        gameStates.add(new LevelSelectState(this));
         gameStates.add(new InstructionsState(this));
+        gameStates.add(new Arena(this));
 
+    }
+
+    public void addState(State state){
+        gameStates.add(state);
     }
 
     public List<State> getGameStates() {

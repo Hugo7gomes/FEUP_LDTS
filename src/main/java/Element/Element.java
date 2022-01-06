@@ -26,6 +26,9 @@ public abstract class Element {
         Rectangle rectangle = new Rectangle(position.getX(), position.getY(), 7, 5);
         return rectangle;
     }
+    public Position getPosition(){
+        return position;
+    }
     public boolean isVisible() {
         return visible;
     }

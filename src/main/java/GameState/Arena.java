@@ -6,34 +6,33 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 
-public class Arena {
-    private int height;
-    private int width;
+public class Arena implements State{
+    private GameStateManager gsm;
     private Block[][] map = new Block[8][52];
     private Block[][] frameAtual;
     private List<Block> blocks = new ArrayList<Block>();
     private BlockFactory blockFactory = new BlockFactory();
-    //private Map map;
     //private List<Enemy> enemys;
+    private int level;
+    private String fileLevel = "Level" + level + ".txt";
 
-    public Arena(int width, int height){
-        this.height = height;
-        this.width = width;
+    public Arena(GameStateManager gsm){
+        this.gsm = gsm;
     }
 
     public void loadMap(){
         int row = 0;
         try {
-            File mapFile = new File("level.txt");
+            File mapFile = new File(fileLevel);
             Scanner read = new Scanner(mapFile);
             while (read.hasNextLine()){
                 String line = read.nextLine();
@@ -52,13 +51,17 @@ public class Arena {
         }
     }
 
+    @Override
     public void init(){
         loadMap();
     }
-    public void buildArena(){
+
+    @Override
+    public void update() {
 
     }
 
+    @Override
     public void draw(TextGraphics graphics){
         graphics.setBackgroundColor(TextColor.Factory.fromString("#87CEFA"));
         graphics.fillRectangle(new TerminalPosition(0,0), new TerminalSize(52*7, 8*5), ' ');
@@ -68,4 +71,24 @@ public class Arena {
           }
         }
     }
+
+    @Override
+    public void keyPressed(KeyStroke key) {
+
+    }
+
+    @Override
+    public void keyReleased() {
+
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+
 }

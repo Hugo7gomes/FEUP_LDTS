@@ -43,15 +43,11 @@ public class Game implements Runnable{
                 update();
                 draw();
                 gsm.notifyCurrentState(screen.pollInput());
-            } catch (IOException e) {
+                Thread.sleep(20);
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
 
-            try {
-                Thread.sleep(20);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -62,7 +58,7 @@ public class Game implements Runnable{
     }
 
     public void update(){
-
+        gsm.getGameStates().get(gsm.getCurrentState()).update();
     }
 
 
