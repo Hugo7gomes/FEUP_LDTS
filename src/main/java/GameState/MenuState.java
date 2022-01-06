@@ -82,11 +82,9 @@ public class MenuState implements State{
         switch (currentChoice){
             case 1:
                 gsm.setState(currentChoice);
-                System.out.println("start");
                 break;
             case 2:
                 gsm.setState(currentChoice);
-                System.out.println("instruct");
                 break;
             case 3:
                 System.exit(0);

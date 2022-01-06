@@ -1,5 +1,6 @@
 import GameState.GameStateManager
 import GameState.MenuState
+import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
 
@@ -62,6 +63,12 @@ class MenuStateSpockTest extends Specification{
     }
 
     def 'test input Enter'(){
+        given:
+            def key = new KeyStroke(KeyType.Enter)
+        when:
+            ms.keyPressed(key)
+        then:
+            gsm.getCurrentState() == ms.getCurrentChoice()
 
     }
 

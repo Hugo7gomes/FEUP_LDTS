@@ -9,7 +9,6 @@ import javax.swing.KeyStroke
 class GameStateManagerSpockTest extends Specification{
     GameStateManager gsm = new GameStateManager()
     State state = Mock(State)
-
     def setup(){
         gsm.gameStates << state
     }

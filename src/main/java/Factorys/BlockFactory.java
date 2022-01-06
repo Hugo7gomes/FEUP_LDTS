@@ -11,16 +11,12 @@ public class BlockFactory {
 
         switch (i){
             case 1:
-                System.out.println("brick");
                 return new BrickBlock(row, col);
             case 2:
-                System.out.println("grass");
                 return new GrassBlock(row, col);
             case 3:
-                System.out.println("stair");
                 return new StairBlock(row, col);
             case 4:
-                System.out.println("test");
                 return new TestBlock(row, col);
 
         }
