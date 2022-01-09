@@ -80,10 +80,10 @@ Two main patterns were applied to the project: a creational pattern, the Factory
 Implementation wise, we have a classe (GameStateManager) that manages all the states and changes the current state depending on the user's input.
 
 <p align="center" justify="center">
-  <img src="images/UML/StatePattern.png"/>
+  <img src="docs/images/UML/StatePattern.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 1. State pattern design</i></b>
+  <b><i>Fig 5. State pattern design</i></b>
 </p>
 
 #### Consequences:
@@ -97,10 +97,10 @@ The use of State Pattern allows:
 To build our arena, we used the Factory Pattern, reading the information from the file and creating dynamically the associated object.
 
 <p align="center" justify="center">
-  <img src="images/UML/FactoryPattern.png"/>
+  <img src="docs/images/UML/FactoryPattern.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 1. Factory pattern design</i></b>
+  <b><i>Fig 6. Factory pattern design</i></b>
 </p>
 
 #### Consequences:
