@@ -12,7 +12,6 @@ class LevelSelectStateSpockTest extends Specification{
 
     def setup(){
         ls = new LevelSelectState(gsm)
-        level = new LevelState(gsm)
     }
 
     def ' Basic test input ArrowDown'(){

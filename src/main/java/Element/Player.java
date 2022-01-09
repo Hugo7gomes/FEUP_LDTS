@@ -30,6 +30,19 @@ public class Player extends Element{
         position.setX(position.getX() + vx);
     }
 
+    public void keyPressed(KeyStroke key){
+        switch (key.getKeyType()){
+            case ArrowRight -> {
+                vx = 3;
+                isLeft = false;
+            }
+            case ArrowLeft-> {
+                vx = -3;
+                isLeft = true;
+            }
+        }
+    }
+
     @Override
     public TextImage buildImage() {
         TextCharacter bg = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("#87CEFA"), SGR.BOLD);
@@ -96,19 +109,6 @@ public class Player extends Element{
         image.setCharacterAt(2,9,blue);
 
         return image;
-    }
-
-    public void keyPressed(KeyStroke key){
-        switch (key.getKeyType()){
-            case ArrowRight -> {
-                vx = 5;
-                isLeft = false;
-            }
-            case ArrowLeft-> {
-                vx = -5;
-                isLeft = true;
-            }
-        }
     }
 
     public void keyReleased(){

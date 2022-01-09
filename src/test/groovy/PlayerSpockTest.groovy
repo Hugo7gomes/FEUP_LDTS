@@ -14,8 +14,8 @@ class PlayerSpockTest extends Specification{
             player.update()
         then:
             player.getIsLeft() == true
-            player.getVx() == -5
-            player.getPosition().getX() == x - 5
+            player.getVx() == -3
+            player.getPosition().getX() == x - 3
     }
 
     def 'ArrowRight Test'(){
@@ -27,7 +27,7 @@ class PlayerSpockTest extends Specification{
             player.update()
         then:
             player.getIsLeft() == false
-            player.getVx() == 5
-            player.getPosition().getX() == x + 5
+            player.getVx() == 3
+            player.getPosition().getX() == x + 3
     }
 }
