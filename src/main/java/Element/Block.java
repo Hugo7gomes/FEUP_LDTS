@@ -18,7 +18,7 @@ public abstract class Block extends Element {
 
     @Override
     public void draw(TextGraphics textGraphics) {
-        TerminalPosition positionTerminal = new TerminalPosition(position.getX(), position.getY());
+        TerminalPosition positionTerminal = new TerminalPosition(relativePosition.getX(), relativePosition.getY());
         textGraphics.drawImage(positionTerminal, image);
     }
 

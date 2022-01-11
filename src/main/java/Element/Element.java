@@ -10,6 +10,7 @@ import java.awt.*;
 
 public abstract class Element {
     public Position position = new Position(0,0);
+    public Position relativePosition = new Position(0,0);
     public TextImage image;
     boolean visible;
 
@@ -29,6 +30,8 @@ public abstract class Element {
     public Position getPosition(){
         return position;
     }
+    public Position getRelativePosition(){return relativePosition;}
+    public void setRelativePosition(Position playerPos){this.relativePosition = new Position(getPosition().getX()-playerPos.getX()+ 140/2,getPosition().getY());}
     public boolean isVisible() {
         return visible;
     }

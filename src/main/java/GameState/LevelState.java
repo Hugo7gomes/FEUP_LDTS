@@ -21,7 +21,8 @@ public class LevelState implements State{
     private BlockFactory blockFactory;
     //private List<Enemy> enemies;
     private Player player;
-    private Block[][] map = new Block[8][52];
+    private Block[][] map = new Block[8][200];
+    private Block[][] frame = new Block[8][21];
     private int level;
 
 
@@ -37,9 +38,15 @@ public class LevelState implements State{
         loadMap();
     }
 
+    public void updateRelativePositions(){
+        for(Block b: blocks){
+            b.setRelativePosition(player.getPosition());
+        }
+    }
     @Override
     public void update() {
         player.update();
+        updateRelativePositions();
     }
 
     @Override
