@@ -6,11 +6,10 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.graphics.TextImage;
 import com.googlecode.lanterna.input.KeyStroke;
 
-import java.security.Key;
-
 public class Player extends Element{
     private int vx;
     boolean isLeft = false;
+    boolean isJumping = false;
     TextImage imageLeft;
 
     //private int vy;
@@ -47,6 +46,10 @@ public class Player extends Element{
             case ArrowLeft-> {
                 vx = -3;
                 isLeft = true;
+            }
+            case ArrowUp -> {
+                //if(isJumping){break;}
+                //else jump();
             }
         }
     }
@@ -118,7 +121,6 @@ public class Player extends Element{
 
         return image;
     }
-
 
     public TextImage buildImageLeft() {
         TextCharacter bg = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("#87CEFA"), SGR.BOLD);
