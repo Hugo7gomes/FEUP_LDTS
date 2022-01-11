@@ -32,7 +32,7 @@ public class LevelState implements State{
 
     @Override
     public void init() {
-        player = new Player(25,60);
+        player = new Player(10,60);
         blocks = new ArrayList<Block>();
         blockFactory = new BlockFactory();
         loadMap();

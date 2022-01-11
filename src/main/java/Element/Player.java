@@ -7,7 +7,11 @@ import com.googlecode.lanterna.graphics.TextImage;
 import com.googlecode.lanterna.input.KeyStroke;
 
 public class Player extends Element{
-    private int vx;
+    private double vx = 0;
+    private double vy = 0;
+    public static final double GRAVITY = 0.1;//gravity 0.1
+    public static final double JUMP_STRENGTH = 3;
+
     boolean isLeft = false;
     boolean isJumping = false;
     TextImage imageLeft;
@@ -28,13 +32,15 @@ public class Player extends Element{
         }else{
             textGraphics.drawImage(positionTerminal, image);
         }
-
-
     }
 
     @Override
     public void update() {
-        position.setX(position.getX() + vx);
+        double newX = position.getX()  + vx;
+        double newY = position.getY() + vy;
+        position.setX((int) newX);
+        position.setY((int) newY);
+        accelerate(0, GRAVITY);
     }
 
     public void keyPressed(KeyStroke key){
@@ -48,8 +54,8 @@ public class Player extends Element{
                 isLeft = true;
             }
             case ArrowUp -> {
-                //if(isJumping){break;}
-                //else jump();
+                if(isJumping){break;}
+                else jump();
             }
         }
     }
@@ -193,11 +199,33 @@ public class Player extends Element{
         vx = 0;
     }
 
-    public int getVx(){
+    public void accelerate(double acelerationX, double acelerationY){
+        vx += acelerationX;
+        vy += acelerationY;
+    }
+
+    public void jump(){
+        isJumping = true;
+        accelerate(0, -JUMP_STRENGTH);
+    }
+
+    public double getVx(){
         return  vx;
+    }
+
+    public double getVy() {
+        return vy;
     }
 
     public boolean getIsLeft(){
         return isLeft;
     }
+
+    public void setVy(double vy) {
+        this.vy = vy;
+    }
+
+    public boolean getIsJumping(){return isJumping;}
+
+    public double getJumpStrength(){return JUMP_STRENGTH;}
 }

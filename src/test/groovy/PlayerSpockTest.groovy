@@ -39,7 +39,7 @@ class PlayerSpockTest extends Specification{
         when:
             player.keyPressed(key)
         then:
-            player.getVy() == vy + player.getJumpStrength()
+            player.getVy() == vy - player.getJumpStrength()
             player.getIsJumping() == true
     }
 
