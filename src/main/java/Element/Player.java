@@ -6,6 +6,8 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.graphics.TextImage;
 import com.googlecode.lanterna.input.KeyStroke;
 
+import java.awt.*;
+
 public class Player extends Element{
     private double vx = 0;
     private double vy = 0;
@@ -22,6 +24,7 @@ public class Player extends Element{
         super(row, col);
         vx = 0;
         imageLeft = buildImageLeft();
+        setHeight(14);
     }
 
     @Override
@@ -35,7 +38,14 @@ public class Player extends Element{
     }
 
     @Override
+    public Rectangle getBounds() {
+        Rectangle rectangle = new Rectangle(getNextPosition().getX(), getNextPosition().getY(), width, height);
+        return rectangle;
+    }
+
+    @Override
     public void update() {
+        //verificar colisoes do player(nextPosition) com blocks
         double newX = position.getX()  + vx;
         double newY = position.getY() + vy;
         position.setX((int) newX);
@@ -207,6 +217,15 @@ public class Player extends Element{
     public void jump(){
         isJumping = true;
         accelerate(0, -JUMP_STRENGTH);
+    }
+
+    public Position getNextPosition(){
+        Position nextPosition = new Position(position.getX(),position.getY());
+        double newX = position.getX()  + vx;
+        double newY = position.getY() + vy;
+        nextPosition.setX((int) newX);
+        nextPosition.setY((int) newY);
+        return  nextPosition;
     }
 
     public double getVx(){

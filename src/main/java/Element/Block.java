@@ -1,12 +1,10 @@
 package Element;
 
 import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextCharacter;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.graphics.TextImage;
+
+import java.awt.*;
 
 public abstract class Block extends Element {
 
@@ -28,5 +26,9 @@ public abstract class Block extends Element {
     @Override
     public abstract TextImage buildImage();
 
-
+    @Override
+    public Rectangle getBounds() {
+        Rectangle rectangle = new Rectangle(position.getX(), position.getY(), width, height);
+        return rectangle;
+    }
 }

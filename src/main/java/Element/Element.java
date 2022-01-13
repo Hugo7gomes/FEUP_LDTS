@@ -11,6 +11,8 @@ import java.awt.*;
 public abstract class Element {
     public Position position = new Position(0,0);
     public Position relativePosition = new Position(0,0);
+    public int width = 7;
+    public int height = 5;
     public TextImage image;
     boolean visible;
 
@@ -23,10 +25,7 @@ public abstract class Element {
     public abstract void draw(TextGraphics textGraphics);
     public abstract void update();
     public abstract TextImage buildImage();
-    public Rectangle getBounds(){
-        Rectangle rectangle = new Rectangle(position.getX(), position.getY(), 7, 5);
-        return rectangle;
-    }
+    public abstract Rectangle getBounds();
     public Position getPosition(){
         return position;
     }
@@ -38,4 +37,6 @@ public abstract class Element {
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
+    public void setWidth(int w){this.width = w;}
+    public void setHeight(int h){this.height = h;}
 }
