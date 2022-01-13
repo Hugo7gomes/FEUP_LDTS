@@ -11,7 +11,7 @@ import java.awt.*;
 public class Player extends Element{
     private double vx = 0;
     private double vy = 0;
-    public static final double GRAVITY = 0.1;//gravity 0.1
+    public static final double GRAVITY = 0.0;//gravity 0.1
     public static final double JUMP_STRENGTH = 3;
 
     boolean isLeft = false;

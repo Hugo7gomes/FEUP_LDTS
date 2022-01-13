@@ -17,8 +17,8 @@ import java.util.Scanner;
 
 public class LevelState implements State{
     private GameStateManager gsm;
-    private List<Block> blocks;
-    private BlockFactory blockFactory;
+    private List<Block> blocks = new ArrayList<Block>();
+    private BlockFactory blockFactory = new BlockFactory();;
     //private List<Enemy> enemies;
     private Player player;
     private Block[][] map = new Block[8][200];
@@ -33,8 +33,6 @@ public class LevelState implements State{
     @Override
     public void init() {
         player = new Player(10,60);
-        blocks = new ArrayList<Block>();
-        blockFactory = new BlockFactory();
         loadMap();
     }
 
@@ -102,4 +100,8 @@ public class LevelState implements State{
     public void setLevel(int level) {
         this.level = level;
     }
+
+    public List<Block> getBlocks(){return blocks;}
+
+    public void setPlayer(Player p){this.player = p;}
 }

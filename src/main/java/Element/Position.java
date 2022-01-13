@@ -22,4 +22,11 @@ public class Position {
     public void setY(int y) {
         this.y = y;
     }
+
+    public boolean isEqual(Position p){
+        if((p.getX() == x) && (p.getY() == y)){
+            return true;
+        }
+        return  false;
+    }
 }
