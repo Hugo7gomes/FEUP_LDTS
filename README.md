@@ -80,7 +80,7 @@ Two main patterns were applied to the project: a creational pattern, the Factory
 Implementation wise, we have a classe (GameStateManager) that manages all the states and changes the current state depending on the user's input.
 
 <p align="center" justify="center">
-  <img src="images/UML/StatePattern.png"/>
+  <img src="images/UML/StateUml.png"/>
 </p>
 <p align="center">
   <b><i>Fig 1. State pattern design</i></b>

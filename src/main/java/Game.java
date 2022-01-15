@@ -47,7 +47,6 @@ public class Game implements Runnable{
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
     }
 

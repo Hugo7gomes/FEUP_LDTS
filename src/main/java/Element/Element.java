@@ -10,8 +10,8 @@ import java.awt.*;
 
 public abstract class Element {
     public Position position = new Position(0,0);
-    public Position relativePosition = new Position(0,0);
-    public int width = 7;
+    public Position relativePosition = new Position(position.getX(), position.getY());
+    public int width = 8;
     public int height = 5;
     public TextImage image;
     boolean visible;

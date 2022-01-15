@@ -20,7 +20,7 @@ public class StairBlock extends Block {
         TextCharacter ch2 = new TextCharacter('/',TextColor.Factory.fromString("#C4A484"),TextColor.Factory.fromString("#964B00"), SGR.BOLD);
         TextCharacter ch3 = new TextCharacter('_', TextColor.Factory.fromString("#C4A484"),TextColor.Factory.fromString("#964B00"), SGR.BOLD);
         TextCharacter ch4 = new TextCharacter('|',TextColor.Factory.fromString("#C4A484"),TextColor.Factory.fromString("#964B00"), SGR.BOLD);
-        TerminalSize size = new TerminalSize(7,5);
+        TerminalSize size = new TerminalSize(8,5);
         TextImage image = new BasicTextImage(size);
 
         image.setAll(ch0);

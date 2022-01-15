@@ -63,7 +63,7 @@ class LevelSelectStateSpockTest extends Specification{
             ls.getCurrentChoice() == 6
     }
 
-    def 'test input Enter'(){
+    /*def 'test input Enter'(){
         given:
             def key = new KeyStroke(KeyType.Enter)
 
@@ -73,5 +73,5 @@ class LevelSelectStateSpockTest extends Specification{
         then:
             level.getLevel() == ls.getCurrentChoice()
 
-    }
+    }*/
 }

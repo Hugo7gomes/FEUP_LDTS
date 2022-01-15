@@ -11,8 +11,8 @@ import spock.lang.Specification
 class LevelStateSpockTest extends Specification{
     def 'Colision Block under Player'(){
         given:
-            Block b = new BrickBlock(23,10)
-            Player p = new Player(10,10)
+            Block b = new BrickBlock(20,10)
+            Player p = new Player(11,10)
         when:
             def bool = p.getBounds().intersects(b.getBounds())
         then:
@@ -81,16 +81,16 @@ class LevelStateSpockTest extends Specification{
             level.keyPressed(key)
             level.update()
         then:
-            p.getPosition() == pPosition
+            p.getPosition().isEqual(pPosition)
     }
 
     def 'Player collides with ground block stays same position'(){
         GameStateManager gsm = new GameStateManager()
         given:
             LevelState level = new LevelState(gsm);
-            Block b = new BrickBlock(23,10)
+            Block b = new BrickBlock(20,10)
             level.getBlocks().add(b)
-            Player p = new Player(10,10)
+            Player p = new Player(11,10)
             p.setVy(1)
             Position pPosition = new Position(p.getPosition().getX(),p.getPosition().getY())
             level.setPlayer(p)

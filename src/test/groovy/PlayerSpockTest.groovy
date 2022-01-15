@@ -1,4 +1,6 @@
 import Element.Player
+import GameState.GameStateManager
+import GameState.LevelState
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
 
@@ -47,10 +49,12 @@ class PlayerSpockTest extends Specification{
         given:
             def key = new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowUp)
         when:
-            playerMock.keyPressed(key)
-            playerMock.update()
-            playerMock.keyPressed(key)
+            player.update()
         then:
-            1 * playerMock.jump()
+            player.getIsJumping() == false
+        when:
+            player.keyPressed(key)
+        then:
+            player.getIsJumping()
     }
 }
