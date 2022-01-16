@@ -6,10 +6,8 @@ import com.googlecode.lanterna.graphics.TextImage;
 
 import java.awt.*;
 
-public abstract class Block extends Element {
-
-
-    public Block(int row, int col) {
+public abstract class Enemy  extends Element{
+    public Enemy(int row, int col) {
         super(row, col);
     }
 
@@ -20,7 +18,7 @@ public abstract class Block extends Element {
     }
 
     @Override
-    public void update() {}
+    public abstract void update();
 
     @Override
     public abstract TextImage buildImage();

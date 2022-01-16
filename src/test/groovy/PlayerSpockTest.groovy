@@ -6,7 +6,6 @@ import spock.lang.Specification
 
 class PlayerSpockTest extends Specification{
     Player player = new Player(10,0)
-    Player playerMock = Mock(Player)
 
     def 'ArrowLeft Test'(){
         given:
@@ -17,8 +16,8 @@ class PlayerSpockTest extends Specification{
             player.update()
         then:
             player.getIsLeft() == true
-            player.getVx() == -3
-            player.getPosition().getX() == x - 3
+            player.getVx() == -4
+            player.getPosition().getX() == x - 4
     }
 
     def 'ArrowRight Test'(){
@@ -30,8 +29,8 @@ class PlayerSpockTest extends Specification{
             player.update()
         then:
             player.getIsLeft() == false
-            player.getVx() == 3
-            player.getPosition().getX() == x + 3
+            player.getVx() == 4
+            player.getPosition().getX() == x + 4
     }
 
     def 'ArrowUp/Jump Test'(){

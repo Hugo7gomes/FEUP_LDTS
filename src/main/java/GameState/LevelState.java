@@ -55,20 +55,16 @@ public class LevelState implements State{
     public void checkColisions(Player p, Block b){
         if(p.getBounds().intersects(b.getBounds())){//testa proxima posição player com posicao blocos
             if(b.getPosition().getX() < p.getNextPosition().getX()){
-                System.out.println("Esquerda");
                 p.setVx(0);
             }
             if(p.getNextPosition().getX() <b.getPosition().getX() ){
-                System.out.println("Direita");
                 p.setVx(0.0);
             }
             if(b.getPosition().getY() < p.getNextPosition().getY()){
-                System.out.println("Cima");
                 p.setVy(0.0);
 
             }
             if(p.getNextPosition().getY() <b.getPosition().getY() ){
-                System.out.println("Baixo");
                 p.setVy(0.0);
                 p.setIsJumping(false);
             }

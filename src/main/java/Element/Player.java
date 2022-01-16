@@ -160,6 +160,7 @@ public class Player extends Element{
         image.setCharacterAt(5,1,red);
         image.setCharacterAt(6,1,red);
         image.setCharacterAt(4,2,yellow);
+        image.setCharacterAt(0,7,black);
         image.setCharacterAt(3,2,black);
         image.setCharacterAt(5,2,yellow);
         image.setCharacterAt(3,3,yellow);
