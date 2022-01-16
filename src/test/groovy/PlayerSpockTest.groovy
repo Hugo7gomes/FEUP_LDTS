@@ -1,6 +1,4 @@
 import Element.Player
-import GameState.GameStateManager
-import GameState.LevelState
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
 

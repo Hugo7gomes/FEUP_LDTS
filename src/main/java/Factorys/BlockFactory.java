@@ -16,9 +16,6 @@ public class BlockFactory {
                 return new GrassBlock(row, col);
             case 3:
                 return new StairBlock(row, col);
-            case 4:
-                return new TestBlock(row, col);
-
         }
         return null;
     }
