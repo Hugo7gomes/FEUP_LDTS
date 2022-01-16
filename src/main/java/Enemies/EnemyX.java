@@ -1,11 +1,9 @@
 package Enemies;
 
 import Element.Enemy;
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextCharacter;
-import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.graphics.BasicTextImage;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.graphics.TextImage;
 
 public class EnemyX extends Enemy {
@@ -15,6 +13,11 @@ public class EnemyX extends Enemy {
         setVx(1.0);
     }
 
+    @Override
+    public void draw(TextGraphics textGraphics) {
+        TerminalPosition positionTerminal = new TerminalPosition(relativePosition.getX(), relativePosition.getY());
+        textGraphics.drawImage(positionTerminal, image);
+    }
 
     public void checkBoundaries(){
         if(position.getX() == (getInitialPos().getX() + getRange())){
@@ -28,7 +31,6 @@ public class EnemyX extends Enemy {
     @Override
     public void update() {
         position.setX(position.getX() + (int) getVx());
-        System.out.println( position.getX());
         checkBoundaries();
     }
 
