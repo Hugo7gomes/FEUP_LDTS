@@ -21,7 +21,6 @@ public abstract class Element {
         position.setX(col);
         this.image = buildImage();
     }
-
     public abstract void draw(TextGraphics textGraphics);
     public abstract void update();
     public abstract TextImage buildImage();

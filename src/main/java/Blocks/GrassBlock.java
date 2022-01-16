@@ -16,7 +16,7 @@ public class GrassBlock extends Block {
     @Override
     public TextImage buildImage() {
         TextCharacter ch = new TextCharacter(' ', TextColor.Factory.fromString("#C4A484"),TextColor.Factory.fromString("#00A300"), SGR.BOLD);
-        TerminalSize size = new TerminalSize(7,5);
+        TerminalSize size = new TerminalSize(8,5);
         TextImage image = new BasicTextImage(size, ch);
         return image;
     }

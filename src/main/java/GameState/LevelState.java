@@ -1,8 +1,10 @@
 package GameState;
 
 import Element.Block;
+import Element.Enemy;
 import Element.Player;
 import Factorys.BlockFactory;
+import Factorys.EnemyFactory;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -18,11 +20,10 @@ import java.util.Scanner;
 public class LevelState implements State{
     private GameStateManager gsm;
     private List<Block> blocks = new ArrayList<Block>();
-    private BlockFactory blockFactory = new BlockFactory();;
-    //private List<Enemy> enemies;
+    private BlockFactory blockFactory = new BlockFactory();
+    private EnemyFactory enemyFactory = new EnemyFactory();
+    private List<Enemy> enemies = new ArrayList<Enemy>();
     private Player player;
-    private Block[][] map = new Block[8][200];
-    private Block[][] frame = new Block[8][21];
     private int level;
 
 
@@ -40,12 +41,18 @@ public class LevelState implements State{
         for(Block b: blocks){
             b.setRelativePosition(player.getPosition());
         }
+        for(Enemy e: enemies){
+            e.setRelativePosition(player.getPosition());
+        }
     }
     @Override
     public void update() {
         //verificar colisoes do player(nextPosition) com blocks
         for(Block b : blocks){
             checkColisions(player, b);
+        }
+        for(Enemy e : enemies){
+            e.update();
         }
         player.update();
         updateRelativePositions();
@@ -74,10 +81,15 @@ public class LevelState implements State{
     @Override
     public void draw(TextGraphics graphics) {
         graphics.setBackgroundColor(TextColor.Factory.fromString("#87CEFA"));
-        graphics.fillRectangle(new TerminalPosition(0,0), new TerminalSize(52*7, 8*5), ' ');
+        graphics.fillRectangle(new TerminalPosition(0,0), new TerminalSize(52*8, 8*5), ' ');
         for(Block b: blocks){
             if(b.isVisible()){
                 b.draw(graphics);
+            }
+        }
+        for(Enemy e: enemies){
+            if(e.isVisible()){
+                e.draw(graphics);
             }
         }
 
@@ -104,11 +116,15 @@ public class LevelState implements State{
                 String line = read.nextLine();
                 for(int i = 0; i < line.length(); i++){
                     Block b = blockFactory.makeBlock(Character.getNumericValue(line.charAt(i)), row * 5, i * 8);
+                    Enemy e = enemyFactory.makeEnemy(Character.getNumericValue(line.charAt(i)), row * 5, i *8);
                     if(b!= null){
                         blocks.add(b);
                         b.setVisible(true);
                     }
-                    map[row][i] = b;
+                    if(e != null){
+                        enemies.add(e);
+                        e.setVisible(true);
+                    }
                 }
                 row++;
             }

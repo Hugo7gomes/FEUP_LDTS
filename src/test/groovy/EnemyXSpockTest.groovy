@@ -16,7 +16,7 @@ class EnemyXSpockTest extends Specification {
     def 'Enemy Reaching Right Boundary'(){
         given:
             def enemy = new EnemyX(10, 0)
-            enemy.setPosition(enemy.getInitialPos().getX() + enemy.getRange(),0)
+            enemy.getPosition().setX(enemy.getInitialPos().getX() + enemy.getRange())
 
         when:
             enemy.update()
