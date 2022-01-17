@@ -12,7 +12,8 @@ public class GameStateManager {
     private int MENUSTATE = 0;
     private int SELECTLEVELSTATE = 1;
     private int INSTRUCTSTATE = 2;
-    private int LEVELSTATE = 3;
+    private int GAMEOVERSTATE = 3;
+    private int LEVELSTATE = 4;
 
 
 
@@ -24,6 +25,7 @@ public class GameStateManager {
         gameStates.add(new MenuState(this));
         gameStates.add(new LevelSelectState(this));
         gameStates.add(new InstructionsState(this));
+        gameStates.add(new GameOverState(this));
 
     }
 

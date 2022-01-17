@@ -6,36 +6,45 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 
-public class LevelSelectState implements State{
-    private int currentChoice = 1;
-    private int NUMLEVELS = 6;
+public class GameOverState implements State{
     private GameStateManager gsm;
+    private int currentChoice = 1;
+    private String[] options = {
+            "Play Again",
+            "Exit"
+    };
 
-    public LevelSelectState(GameStateManager gsm){
+    public GameOverState(GameStateManager gsm) {
         this.gsm = gsm;
     }
 
+    @Override
+    public void init() {
+        //Elimina o LevelState para o utilizador poder voltar a escolher um nivel
+        if(gsm.getGameStates().size() == 5){
+            gsm.getGameStates().remove(4);
+        }
+    }
 
     @Override
-    public void init() {}
+    public void update() {
 
-    @Override
-    public void update() {}
+    }
 
     @Override
     public void draw(TextGraphics g) {
         g.setBackgroundColor(TextColor.Factory.fromString("BLACK"));
         g.fillRectangle(new TerminalPosition(0,0), new TerminalSize(190, 50), ' ');
 
-        g.putString(10,10,"Super Mario");
+        g.putString(10,10,"Game Over");
 
-        for(int i = 1; i < 7; i++){
-            if(i  == currentChoice){
+        for(int i = 0; i < options.length; i++){
+            if(i + 1 == currentChoice){
                 g.setForegroundColor(TextColor.Factory.fromString("RED"));
             }else{
                 g.setForegroundColor(TextColor.Factory.fromString("WHITE"));
             }
-            g.putString(10, 13 + i, "LEVEL" + i);
+            g.putString(10, 13 + i, options[i]);
         }
     }
 
@@ -46,12 +55,12 @@ public class LevelSelectState implements State{
             case ArrowUp -> {
                 currentChoice--;
                 if(currentChoice == 0){
-                    currentChoice = NUMLEVELS;
+                    currentChoice = options.length;
                 }
             }
             case ArrowDown-> {
                 currentChoice++;
-                if(currentChoice == NUMLEVELS + 1){
+                if(currentChoice == options.length + 1){
                     currentChoice = 1;
                 }
             }
@@ -59,21 +68,26 @@ public class LevelSelectState implements State{
     }
 
     @Override
-    public void keyReleased() {}
+    public void keyReleased() {
 
-    public void select(){
-        LevelState level = new LevelState(gsm);
-       level.setLevel(currentChoice);
-       gsm.addState(level);
-       gsm.setState(4);
     }
-
 
     public int getCurrentChoice() {
         return currentChoice;
     }
 
-    public void setCurrentChoice(int choice){
-        this.currentChoice = choice;
+    public void setCurrentChoice(int currentChoice) {
+        this.currentChoice = currentChoice;
+    }
+
+    public void select(){
+        switch (currentChoice){
+            case 1:
+                gsm.setState(1);
+                break;
+            case 2:
+                System.exit(0);
+                break;
+        }
     }
 }

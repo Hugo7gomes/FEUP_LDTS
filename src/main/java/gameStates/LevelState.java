@@ -53,6 +53,9 @@ public class LevelState implements State{
                 checkCollisionsEnemy(player, e);
             }
         }
+        if(player.getLives() == 0){
+            gsm.setState(3);
+        }
 
         for(Enemy e : enemies){
             e.update();
@@ -73,6 +76,7 @@ public class LevelState implements State{
             }
             else{
                 p.getPosition().setY(0);
+                p.getPosition().setX(p.getPosition().getX()-16);
                 p.setLives(p.getLives()-1);
             }
         }
