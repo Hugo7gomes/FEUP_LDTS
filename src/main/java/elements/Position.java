@@ -1,4 +1,4 @@
-package Element;
+package elements;
 
 public class Position {
     private int x, y;

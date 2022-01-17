@@ -1,5 +1,5 @@
-import GameState.GameStateManager
-import GameState.MenuState
+import gameStates.GameStateManager
+import gameStates.MenuState
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification

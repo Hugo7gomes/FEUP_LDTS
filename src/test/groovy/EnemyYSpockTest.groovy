@@ -1,5 +1,4 @@
-import Enemies.EnemyX
-import Enemies.EnemyY
+import enemies.EnemyY
 import spock.lang.Specification
 
 class EnemyYSpockTest extends Specification {

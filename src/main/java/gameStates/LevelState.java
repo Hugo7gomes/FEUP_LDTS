@@ -1,10 +1,10 @@
-package GameState;
+package gameStates;
 
-import Element.Block;
-import Element.Enemy;
-import Element.Player;
-import Factorys.BlockFactory;
-import Factorys.EnemyFactory;
+import elements.Block;
+import elements.Enemy;
+import elements.Player;
+import factories.BlockFactory;
+import factories.EnemyFactory;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -25,6 +25,7 @@ public class LevelState implements State{
     private List<Enemy> enemies = new ArrayList<Enemy>();
     private Player player;
     private int level;
+
 
 
     public LevelState(GameStateManager gsm){
@@ -48,18 +49,23 @@ public class LevelState implements State{
     @Override
     public void update() {
         //verificar colisoes do player(nextPosition) com blocks
-        for(Block b : blocks){
-            checkColisions(player, b);
-        }
         for(Enemy e : enemies){
             e.update();
+        }
+        for(Block b : blocks){
+            checkColisionsBlock(player, b);
+        }
+        for(Enemy e : enemies){
+            if(e.isVisible()){
+                //checkColisionsEnemy(player, e);
+            }
         }
         player.update();
         updateRelativePositions();
     }
 
 
-    public void checkColisions(Player p, Block b){
+    public void checkColisionsBlock(Player p, Block b){
         if(p.getBounds().intersects(b.getBounds())){//testa proxima posição player com posicao blocos
             if(b.getPosition().getX() < p.getNextPosition().getX()){
                 p.setVx(0);
@@ -77,6 +83,8 @@ public class LevelState implements State{
             }
         }
     }
+
+
 
     @Override
     public void draw(TextGraphics graphics) {
@@ -142,6 +150,8 @@ public class LevelState implements State{
     }
 
     public List<Block> getBlocks(){return blocks;}
+
+    public List<Enemy> getEnemies(){return enemies;}
 
     public void setPlayer(Player p){this.player = p;}
 }

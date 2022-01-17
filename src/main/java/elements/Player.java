@@ -1,4 +1,4 @@
-package Element;
+package elements;
 
 import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.graphics.BasicTextImage;

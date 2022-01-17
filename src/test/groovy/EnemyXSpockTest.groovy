@@ -1,4 +1,4 @@
-import Enemies.EnemyX
+import enemies.EnemyX
 import spock.lang.Specification;
 
 class EnemyXSpockTest extends Specification {
@@ -10,7 +10,7 @@ class EnemyXSpockTest extends Specification {
             enemy.update()
 
         then:
-            enemy.getPosition().getX() == enemy.getInitialPos().getX() + enemy.getVx()
+            enemy.getPosition().getX() == (enemy.getInitialPos().getX() + enemy.getVx())
     }
 
     def 'Enemy Reaching Right Boundary'(){
@@ -22,7 +22,7 @@ class EnemyXSpockTest extends Specification {
             enemy.update()
 
         then:
-            enemy.getPosition().getX() == enemy.getInitialPos().getX() + enemy.getRange() + enemy.getVx()
+            enemy.getPosition().getX() == (enemy.getInitialPos().getX() + enemy.getRange() + enemy.getVx())
     }
 
     def 'Enemy Reaching Left Boundary'() {
@@ -32,6 +32,6 @@ class EnemyXSpockTest extends Specification {
         when:
             enemy.update()
         then:
-            enemy.getPosition().getX() == enemy.getInitialPos().getX() + enemy.getVx()
+            enemy.getPosition().getX() == (enemy.getInitialPos().getX() + enemy.getVx())
     }
 }

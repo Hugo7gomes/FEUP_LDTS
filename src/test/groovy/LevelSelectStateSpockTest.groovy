@@ -1,7 +1,6 @@
-import GameState.GameStateManager
-import GameState.LevelSelectState
-import GameState.LevelState
-import com.googlecode.lanterna.input.KeyStroke
+import gameStates.GameStateManager
+import gameStates.LevelSelectState
+import gameStates.LevelState
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
 

@@ -1,10 +1,9 @@
-package Factorys;
+package factories;
 
-import Blocks.BrickBlock;
-import Blocks.GrassBlock;
-import Blocks.StairBlock;
-import Blocks.TestBlock;
-import Element.Block;
+import blocks.BrickBlock;
+import blocks.GrassBlock;
+import blocks.StairBlock;
+import elements.Block;
 
 public class BlockFactory {
     public Block makeBlock(int i, int row, int col){

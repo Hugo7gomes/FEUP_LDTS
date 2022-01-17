@@ -1,4 +1,4 @@
-import Element.Player
+import elements.Player
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
 

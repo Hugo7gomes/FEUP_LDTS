@@ -1,6 +1,6 @@
-package Blocks;
+package blocks;
 
-import Element.Block;
+import elements.Block;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextCharacter;

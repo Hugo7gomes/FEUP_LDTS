@@ -1,6 +1,6 @@
-package Enemies;
+package enemies;
 
-import Element.Enemy;
+import elements.Enemy;
 import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.graphics.TextGraphics;

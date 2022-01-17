@@ -59,7 +59,7 @@ The following screenshots ilustrate the general look of our game, as well as the
 
 - **Player control** - The player can move and throw the fire balls with the keyboard control.
 
-- **Collisions detection** - Collisions between different objects are verified (eg.: Player, Enemies, Obstacles).
+- **Collisions detection** - Collisions between different objects are verified (eg.: Player, enemies, Obstacles).
 
 - **Different levels** - different levels with increased difficulty will be implemented.
 

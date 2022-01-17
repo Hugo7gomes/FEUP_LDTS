@@ -1,7 +1,7 @@
-package Factorys;
-import Element.Enemy;
-import Enemies.EnemyX;
-import Enemies.EnemyY;
+package factories;
+import elements.Enemy;
+import enemies.EnemyX;
+import enemies.EnemyY;
 
 public class EnemyFactory {
     public Enemy makeEnemy(int i, int row, int col){

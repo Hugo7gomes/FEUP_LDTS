@@ -1,4 +1,4 @@
-package Element;
+package elements;
 
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.graphics.TextGraphics;

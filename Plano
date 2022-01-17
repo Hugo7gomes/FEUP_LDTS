@@ -3,11 +3,11 @@ Branch Develop
 Branch Features
 class Game:
 	int TerminalCols, TerminalRows;
-	GameState.Arena, Screen;
+	gameStates.Arena, Screen;
 	run()
-	init() -> Inicia Screen, GameState.Arena
-	update() -> chama GameState.Arena.update()
-	draw() -> chama GameState.Arena.draw()
+	init() -> Inicia Screen, gameStates.Arena
+	update() -> chama gameStates.Arena.update()
+	draw() -> chama gameStates.Arena.draw()
 
 class Level:
 	int numLevel;
@@ -15,10 +15,10 @@ class Level:
 	int[][] map
 
 
-class GameState.Arena:
+class gameStates.Arena:
 	Level level;
 	Player
-	list<Blocks>
+	list<blocks>
 	list<Enemys>
 	buildArena(level) -> Percorrer level.getMap() criar objetos do mapa e coloca los nas listas
 
@@ -55,8 +55,8 @@ class moveYEnemy extends enemy
 class bossEnemy extends enemy
 	
 
-class Factorys.BlockFactory:
-	metodo make(int) retorna Element.Element.Block obj perante o int que receber
+class factories.BlockFactory:
+	metodo make(int) retorna elements.elements.Block obj perante o int que receber
 
 class EnemyFactory:
 	metodo make(int) retorna Enemy obj perante o int que receber

@@ -1,10 +1,11 @@
-import Blocks.BrickBlock
-import Element.Block
-import Element.Element
-import Element.Player
-import Element.Position
-import GameState.GameStateManager
-import GameState.LevelState
+import blocks.BrickBlock
+import elements.Block
+import elements.Enemy
+import elements.Player
+import elements.Position
+import enemies.EnemyX
+import gameStates.GameStateManager
+import gameStates.LevelState
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
 
@@ -87,7 +88,7 @@ class LevelStateSpockTest extends Specification{
     def 'Player collides with ground block stays same position'(){
         GameStateManager gsm = new GameStateManager()
         given:
-            LevelState level = new LevelState(gsm);
+            LevelState level = new LevelState(gsm)
             Block b = new BrickBlock(20,10)
             level.getBlocks().add(b)
             Player p = new Player(11,10)
@@ -99,4 +100,40 @@ class LevelStateSpockTest extends Specification{
         then:
             p.getPosition().isEqual(pPosition)
     }
+
+    def 'Player collides with Enemy and loses a live'(){
+        GameStateManager gsm = new GameStateManager()
+        given:
+            LevelState level = new LevelState(gsm);
+            Enemy e = new EnemyX(20,8)
+            level.getEnemies().add(e)
+            Player p = new Player(20,16)
+            level.setPlayer(p)
+            int playerLives = player.getLives()
+
+        when:
+            level.update()
+
+        then:
+            p.getLives() == playerLives - 1
+
+    }
+
+    def 'Player kills Enemy'(){
+        GameStateManager gsm = new GameStateManager()
+        given:
+            LevelState level = new LevelState(gsm);
+            Enemy e = new EnemyX(30,8)
+            level.getEnemies().add(e)
+            Player p = new Player(20,8)
+            level.setPlayer(p)
+
+        when:
+            level.update()
+
+        then:
+            e.isVisible() == false
+
+    }
+
 }
