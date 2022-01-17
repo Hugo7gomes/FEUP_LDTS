@@ -9,6 +9,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import java.awt.*;
 
 public class Player extends Element{
+    private int lives = 3;
     private double vx = 0;
     private double vy = 0;
     public static final double GRAVITY = 0.2;//gravity 0.1
@@ -18,7 +19,6 @@ public class Player extends Element{
     boolean isJumping = false;
     TextImage imageLeft;
 
-    //private int vy;
 
     public Player(int row, int col) {
         super(row, col);
@@ -253,4 +253,10 @@ public class Player extends Element{
     public void setIsJumping(boolean b){this.isJumping = b;}
 
     public double getJumpStrength(){return JUMP_STRENGTH;}
+
+    public int getLives() {return lives;}
+
+    public void setLives(int lives) {
+        this.lives = lives;
+    }
 }

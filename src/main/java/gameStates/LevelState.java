@@ -48,20 +48,34 @@ public class LevelState implements State{
     }
     @Override
     public void update() {
-        //verificar colisoes do player(nextPosition) com blocks
+        for(Enemy e : enemies){
+            if(e.isVisible()){
+                checkColisionsEnemy(player, e);
+            }
+        }
+
         for(Enemy e : enemies){
             e.update();
         }
         for(Block b : blocks){
             checkColisionsBlock(player, b);
         }
-        for(Enemy e : enemies){
-            if(e.isVisible()){
-                //checkColisionsEnemy(player, e);
-            }
-        }
+
+
         player.update();
         updateRelativePositions();
+    }
+
+    private void checkColisionsEnemy(Player p, Enemy e) {
+        if(p.getBounds().intersects(e.getBounds())){
+            if((p.getNextPosition().getY()+8) < e.getPosition().getY()){
+                e.setVisible(false);
+            }
+            else{
+                //colocar o player a cair do ceu
+                p.setLives(p.getLives()-1);
+            }
+        }
     }
 
 
@@ -154,4 +168,8 @@ public class LevelState implements State{
     public List<Enemy> getEnemies(){return enemies;}
 
     public void setPlayer(Player p){this.player = p;}
+
+    public int getLives(){
+        return player.getLives();
+    }
 }
