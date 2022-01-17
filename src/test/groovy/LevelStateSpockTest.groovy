@@ -1,6 +1,7 @@
 import blocks.BrickBlock
 import elements.Block
 import elements.Enemy
+import elements.FinalFlag
 import elements.Player
 import elements.Position
 import enemies.EnemyX
@@ -124,6 +125,7 @@ class LevelStateSpockTest extends Specification{
 
     def 'Player kills Enemy'(){
         GameStateManager gsm = new GameStateManager()
+
         given:
             LevelState level = new LevelState(gsm)
             Enemy e = new EnemyY(29,8)
@@ -138,6 +140,24 @@ class LevelStateSpockTest extends Specification{
         then:
             e.isVisible() == false
 
+    }
+
+    def 'Player wins'(){
+        GameStateManager gsm = new GameStateManager()
+
+        given:
+            LevelState level = new LevelState(gsm)
+            Player p = new Player(20,8)
+            level.setPlayer(p)
+            FinalFlag flag = new FinalFlag(20,18)
+            level.setFlag(flag)
+            def key = new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowRight)
+        when:
+            level.keyPressed(key)
+            level.update()
+
+        then:
+            gsm.getCurrentState() == 4
     }
 
 }

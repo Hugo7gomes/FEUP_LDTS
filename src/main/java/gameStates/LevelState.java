@@ -2,6 +2,7 @@ package gameStates;
 
 import elements.Block;
 import elements.Enemy;
+import elements.FinalFlag;
 import elements.Player;
 import factories.BlockFactory;
 import factories.EnemyFactory;
@@ -24,6 +25,7 @@ public class LevelState implements State{
     private EnemyFactory enemyFactory = new EnemyFactory();
     private List<Enemy> enemies = new ArrayList<Enemy>();
     private Player player;
+    private FinalFlag flag;
     private int level;
 
 
@@ -39,6 +41,7 @@ public class LevelState implements State{
     }
 
     public void updateRelativePositions(){
+        flag.setRelativePosition(player.getPosition());
         for(Block b: blocks){
             b.setRelativePosition(player.getPosition());
         }
@@ -119,7 +122,7 @@ public class LevelState implements State{
             }
         }
 
-
+        flag.draw(graphics);
         player.draw(graphics);
     }
 
@@ -141,6 +144,10 @@ public class LevelState implements State{
             while (read.hasNextLine()){
                 String line = read.nextLine();
                 for(int i = 0; i < line.length(); i++){
+                    if(Character.getNumericValue(line.charAt(i)) == 5){
+                        FinalFlag flag = new FinalFlag(40, i*8);
+                        this.flag = flag;
+                    }
                     Block b = blockFactory.makeBlock(Character.getNumericValue(line.charAt(i)), row * 5, i * 8);
                     Enemy e = enemyFactory.makeEnemy(Character.getNumericValue(line.charAt(i)), row * 5, i *8);
                     if(b!= null){
@@ -175,5 +182,9 @@ public class LevelState implements State{
 
     public int getLives(){
         return player.getLives();
+    }
+
+    public void setFlag(FinalFlag flag){
+        this.flag = flag;
     }
 }

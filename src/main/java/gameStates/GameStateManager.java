@@ -13,7 +13,8 @@ public class GameStateManager {
     private int SELECTLEVELSTATE = 1;
     private int INSTRUCTSTATE = 2;
     private int GAMEOVERSTATE = 3;
-    private int LEVELSTATE = 4;
+    private int WINSTATE = 4;
+    private int LEVELSTATE = 5;
 
 
 
