@@ -117,6 +117,7 @@ class LevelStateSpockTest extends Specification{
             level.update()
 
         then:
+            p.getPosition().getY() == 0
             level.getLives() == playerLives - 1
 
     }

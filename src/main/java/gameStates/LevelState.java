@@ -50,7 +50,7 @@ public class LevelState implements State{
     public void update() {
         for(Enemy e : enemies){
             if(e.isVisible()){
-                checkColisionsEnemy(player, e);
+                checkCollisionsEnemy(player, e);
             }
         }
 
@@ -58,7 +58,7 @@ public class LevelState implements State{
             e.update();
         }
         for(Block b : blocks){
-            checkColisionsBlock(player, b);
+            checkCollisionsBlock(player, b);
         }
 
 
@@ -66,20 +66,20 @@ public class LevelState implements State{
         updateRelativePositions();
     }
 
-    private void checkColisionsEnemy(Player p, Enemy e) {
+    private void checkCollisionsEnemy(Player p, Enemy e) {
         if(p.getBounds().intersects(e.getBounds())){
             if((p.getNextPosition().getY()+8) < e.getPosition().getY()){
                 e.setVisible(false);
             }
             else{
-                //colocar o player a cair do ceu
+                p.getPosition().setY(0);
                 p.setLives(p.getLives()-1);
             }
         }
     }
 
 
-    public void checkColisionsBlock(Player p, Block b){
+    public void checkCollisionsBlock(Player p, Block b){
         if(p.getBounds().intersects(b.getBounds())){//testa proxima posição player com posicao blocos
             if(b.getPosition().getX() < p.getNextPosition().getX()){
                 p.setVx(0);
