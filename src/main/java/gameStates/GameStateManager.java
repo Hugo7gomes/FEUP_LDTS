@@ -27,6 +27,7 @@ public class GameStateManager {
         gameStates.add(new LevelSelectState(this));
         gameStates.add(new InstructionsState(this));
         gameStates.add(new GameOverState(this));
+        gameStates.add(new WinState(this));
 
     }
 

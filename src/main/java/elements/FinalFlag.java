@@ -1,6 +1,7 @@
 package elements;
 
-import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.*;
+import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.graphics.TextImage;
 
@@ -23,7 +24,26 @@ public class FinalFlag extends Element{
 
     @Override
     public TextImage buildImage() {
-        return null;
+        TextCharacter bg = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("#87CEFA"), SGR.BOLD);
+        TextCharacter red = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("#8B0000"), SGR.BOLD);
+        TextCharacter black = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("BLACK"), SGR.BOLD);
+        TerminalSize size = new TerminalSize(16,35);
+        TextImage image = new BasicTextImage(size);
+        image.setAll(bg);
+        image.setCharacterAt(0,33, black);
+        image.setCharacterAt(0,34, black);
+        image.setCharacterAt(3,33, black);
+        image.setCharacterAt(3,34, black);
+        for(int row = 10; row < 35; row++){
+            image.setCharacterAt(1,row, black);
+            image.setCharacterAt(2,row, black);
+        }
+        for(int row = 10; row < 15; row++){
+            for(int col = 3; col < 17; col++){
+                image.setCharacterAt(col,row, red);
+            }
+        }
+        return image;
     }
 
     @Override

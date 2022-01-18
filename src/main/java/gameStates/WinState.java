@@ -6,21 +6,32 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 
-public class GameOverState implements State{
+public class WinState implements State{
     private GameStateManager gsm;
     private int currentChoice = 1;
     private String[] options = {
-            "Play Again",
+            "Select Another Level",
             "Exit"
     };
 
-    public GameOverState(GameStateManager gsm) {
+    public void setCurrentChoice(int currentChoice) {
+        this.currentChoice = currentChoice;
+    }
+
+    public String[] getOptions(){
+        return options;
+    }
+
+    public int getCurrentChoice() {
+        return currentChoice;
+    }
+
+    public WinState(GameStateManager gsm) {
         this.gsm = gsm;
     }
 
     @Override
     public void init() {
-        //Elimina o LevelState para o utilizador poder voltar a escolher um nivel
         if(gsm.getGameStates().size() == 6){
             gsm.getGameStates().remove(5);
         }
@@ -36,7 +47,12 @@ public class GameOverState implements State{
         g.setBackgroundColor(TextColor.Factory.fromString("BLACK"));
         g.fillRectangle(new TerminalPosition(0,0), new TerminalSize(190, 50), ' ');
 
-        g.putString(10,10,"Game Over");
+        g.putString(65,10,"YOU WON!");
+
+        g.putString(60,13 + options.length +5,"Game designed by:");
+        g.putString(60,13 + options.length +6,"Hugo Gomes");
+        g.putString(60,13 + options.length +7,"Lia Silva");
+        g.putString(60,13 + options.length +8,"Joao Moreira");
 
         for(int i = 0; i < options.length; i++){
             if(i + 1 == currentChoice){
@@ -44,9 +60,13 @@ public class GameOverState implements State{
             }else{
                 g.setForegroundColor(TextColor.Factory.fromString("WHITE"));
             }
-            g.putString(10, 13 + i, options[i]);
+            g.putString(60, 13 + i, options[i]);
         }
+
+
+
     }
+
 
     @Override
     public void keyPressed(KeyStroke key) {
@@ -65,6 +85,7 @@ public class GameOverState implements State{
                 }
             }
         }
+
     }
 
     @Override
@@ -72,22 +93,15 @@ public class GameOverState implements State{
 
     }
 
-    public int getCurrentChoice() {
-        return currentChoice;
-    }
-
-    public void setCurrentChoice(int currentChoice) {
-        this.currentChoice = currentChoice;
-    }
-
     public void select(){
         switch (currentChoice){
             case 1:
-                gsm.setState(1);
+                gsm.setState(currentChoice);
                 break;
             case 2:
                 System.exit(0);
                 break;
         }
     }
+
 }

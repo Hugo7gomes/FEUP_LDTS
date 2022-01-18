@@ -65,7 +65,7 @@ public class LevelSelectState implements State{
         LevelState level = new LevelState(gsm);
        level.setLevel(currentChoice);
        gsm.addState(level);
-       gsm.setState(4);
+       gsm.setState(5);
     }
 
 

@@ -59,6 +59,8 @@ class LevelStateSpockTest extends Specification{
             Block b = new BrickBlock(10,2)
             level.getBlocks().add(b)
             Player p = new Player(5,10)
+            FinalFlag flag = new FinalFlag(20,18)
+            level.setFlag(flag)
             Position pPosition = new Position(p.getPosition().getX(),p.getPosition().getY())
             level.setPlayer(p)
             def key = new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowLeft)
@@ -74,6 +76,8 @@ class LevelStateSpockTest extends Specification{
         GameStateManager gsm = new GameStateManager()
         given:
             LevelState level = new LevelState(gsm)
+            FinalFlag flag = new FinalFlag(20,50)
+            level.setFlag(flag)
             Block b = new BrickBlock(10,19)
             level.getBlocks().add(b)
             Player p = new Player(5,10)
@@ -91,6 +95,8 @@ class LevelStateSpockTest extends Specification{
         GameStateManager gsm = new GameStateManager()
         given:
             LevelState level = new LevelState(gsm)
+            FinalFlag flag = new FinalFlag(20,50)
+            level.setFlag(flag)
             Block b = new BrickBlock(20,10)
             level.getBlocks().add(b)
             Player p = new Player(11,10)
@@ -107,6 +113,8 @@ class LevelStateSpockTest extends Specification{
         GameStateManager gsm = new GameStateManager()
         given:
             LevelState level = new LevelState(gsm)
+            FinalFlag flag = new FinalFlag(20,50)
+            level.setFlag(flag)
             Enemy e = new EnemyX(20,8)
             e.setVisible(true)
             level.getEnemies().add(e)
@@ -128,6 +136,8 @@ class LevelStateSpockTest extends Specification{
 
         given:
             LevelState level = new LevelState(gsm)
+            FinalFlag flag = new FinalFlag(20,50)
+            level.setFlag(flag)
             Enemy e = new EnemyY(29,8)
             e.setVisible(true)
             level.getEnemies().add(e)

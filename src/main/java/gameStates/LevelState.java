@@ -51,6 +51,11 @@ public class LevelState implements State{
     }
     @Override
     public void update() {
+
+        if(player.getBounds().intersects(flag.getBounds())){
+            gsm.setState(4);
+        }
+
         for(Enemy e : enemies){
             if(e.isVisible()){
                 checkCollisionsEnemy(player, e);
@@ -144,8 +149,8 @@ public class LevelState implements State{
             while (read.hasNextLine()){
                 String line = read.nextLine();
                 for(int i = 0; i < line.length(); i++){
-                    if(Character.getNumericValue(line.charAt(i)) == 5){
-                        FinalFlag flag = new FinalFlag(40, i*8);
+                    if(Character.getNumericValue(line.charAt(i)) == 6){
+                        FinalFlag flag = new FinalFlag(0, i*8);
                         this.flag = flag;
                     }
                     Block b = blockFactory.makeBlock(Character.getNumericValue(line.charAt(i)), row * 5, i * 8);
