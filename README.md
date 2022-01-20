@@ -1,16 +1,16 @@
 # LDTS_T06_G02 - Super Mario
 
-## Game Description
+## superMario.Game Description
 
-The Super Mario is a 2D platformer based game where you have to race through a map and reach a flag in order to win. The map is full of enemies, platforms and open holes. The "hero" can run, jump and shoot fire balls. If he touches any of the enemies or falls down a hole, he will lose a life. After 3 lives lost, he dies.
+The Super Mario is a 2D platformer based game where you have to race through a map and reach a flag in order to win. The map is full of superMario.enemies, platforms and open holes. The "hero" can run, jump and shoot fire balls. If he touches any of the superMario.enemies or falls down a hole, he will lose a life. After 3 lives lost, he dies.
 
 ## Screenshots
 
 The following screenshots ilustrate the general look of our game, as well as the divergent functionalities:
-### Game preview
+### superMario.Game preview
 
 <p align="center" justify="center">
-  <img src="docs/images/Game.png"/>
+  <img src="docs/images/superMario.Game.png"/>
 </p>
 <p align="center">
   <b><i>Fig 1. Sneak peak into Mario game</i></b>
@@ -59,7 +59,7 @@ The following screenshots ilustrate the general look of our game, as well as the
 
 - **Player control** - The player can move and throw the fire balls with the keyboard control.
 
-- **Collisions detection** - Collisions between different objects are verified (eg.: Player, enemies, Obstacles).
+- **Collisions detection** - Collisions between different objects are verified (eg.: Player, superMario.enemies, Obstacles).
 
 - **Different levels** - different levels with increased difficulty will be implemented.
 

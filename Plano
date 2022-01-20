@@ -1,13 +1,13 @@
 Plano Projeto Ldts:
 Branch Develop
 Branch Features
-class Game:
+class superMario.Game:
 	int TerminalCols, TerminalRows;
-	gameStates.Arena, Screen;
+	superMario.gameStates.Arena, Screen;
 	run()
-	init() -> Inicia Screen, gameStates.Arena
-	update() -> chama gameStates.Arena.update()
-	draw() -> chama gameStates.Arena.draw()
+	init() -> Inicia Screen, superMario.gameStates.Arena
+	update() -> chama superMario.gameStates.Arena.update()
+	draw() -> chama superMario.gameStates.Arena.draw()
 
 class Level:
 	int numLevel;
@@ -15,10 +15,10 @@ class Level:
 	int[][] map
 
 
-class gameStates.Arena:
+class superMario.gameStates.Arena:
 	Level level;
 	Player
-	list<blocks>
+	list<superMario.blocks>
 	list<Enemys>
 	buildArena(level) -> Percorrer level.getMap() criar objetos do mapa e coloca los nas listas
 
@@ -55,8 +55,8 @@ class moveYEnemy extends enemy
 class bossEnemy extends enemy
 	
 
-class factories.BlockFactory:
-	metodo make(int) retorna elements.elements.Block obj perante o int que receber
+class superMario.factories.BlockFactory:
+	metodo make(int) retorna superMario.elements.superMario.elements.Block obj perante o int que receber
 
 class EnemyFactory:
 	metodo make(int) retorna Enemy obj perante o int que receber
