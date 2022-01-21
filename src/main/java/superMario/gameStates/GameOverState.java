@@ -1,5 +1,6 @@
 package superMario.gameStates;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -36,7 +37,7 @@ public class GameOverState implements State{
         g.setBackgroundColor(TextColor.Factory.fromString("BLACK"));
         g.fillRectangle(new TerminalPosition(0,0), new TerminalSize(190, 50), ' ');
 
-        g.putString(10,10,"Game Over");
+        g.putString(65,13,"Game Over", SGR.BOLD);
 
         for(int i = 0; i < options.length; i++){
             if(i + 1 == currentChoice){
@@ -44,7 +45,7 @@ public class GameOverState implements State{
             }else{
                 g.setForegroundColor(TextColor.Factory.fromString("WHITE"));
             }
-            g.putString(10, 13 + i, options[i]);
+            g.putString(65, 15 + i, options[i], SGR.BOLD);
         }
     }
 

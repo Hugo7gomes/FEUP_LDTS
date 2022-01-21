@@ -1,5 +1,6 @@
 package superMario.gameStates;
 
+import com.googlecode.lanterna.SGR;
 import superMario.elements.Block;
 import superMario.elements.Enemy;
 import superMario.elements.FinalFlag;
@@ -92,7 +93,7 @@ public class LevelState implements State{
 
 
     public void checkCollisionsBlock(Player p, Block b){
-        if(p.getBounds().intersects(b.getBounds())){//testa proxima posição player com posicao blocos
+        if(p.getBounds().intersects(b.getBounds())){
             if(b.getPosition().getX() < p.getNextPosition().getX()){
                 p.setVx(0);
             }
@@ -127,8 +128,11 @@ public class LevelState implements State{
             }
         }
 
+        graphics.setForegroundColor(TextColor.Factory.fromString("RED"));
+        graphics.putString(2,2,"Lives: " + player.getLives(),SGR.BOLD);
         flag.draw(graphics);
         player.draw(graphics);
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package superMario.gameStates;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -8,7 +9,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 
 public class LevelSelectState implements State{
     private int currentChoice = 1;
-    private int NUMLEVELS = 6;
+    private int NUMLEVELS = 3;
     private GameStateManager gsm;
 
     public LevelSelectState(GameStateManager gsm){
@@ -27,15 +28,15 @@ public class LevelSelectState implements State{
         g.setBackgroundColor(TextColor.Factory.fromString("BLACK"));
         g.fillRectangle(new TerminalPosition(0,0), new TerminalSize(190, 50), ' ');
 
-        g.putString(10,10,"Super Mario");
+        g.putString(65,13,"Super Mario", SGR.BOLD);
 
-        for(int i = 1; i < 7; i++){
+        for(int i = 1; i < 4; i++){
             if(i  == currentChoice){
                 g.setForegroundColor(TextColor.Factory.fromString("RED"));
             }else{
                 g.setForegroundColor(TextColor.Factory.fromString("WHITE"));
             }
-            g.putString(10, 13 + i, "LEVEL" + i);
+            g.putString(65, 15 + i, "LEVEL" + i, SGR.BOLD);
         }
     }
 

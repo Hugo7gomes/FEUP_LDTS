@@ -13,7 +13,7 @@ public class Player extends Element{
     private double vx = 0;
     private double vy = 0;
     public static final double GRAVITY = 0.2;//gravity 0.1
-    public static final double JUMP_STRENGTH = 2;
+    public static final double JUMP_STRENGTH = 2.2;
 
     boolean isLeft = false;
     boolean isJumping = false;
