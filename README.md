@@ -18,7 +18,7 @@ The following screenshots ilustrate the general look of our game, as well as the
 
 ### Menus
 <p align="center" justify="center">
-  <img src="docs/images/MainMenu.png" width="" height=""/>
+  <img src="docs/images/mainMenu.png" width="" height=""/>
 </p>
 <p align="center">
   <b><i>Fig 1. Main Menu </i></b>
