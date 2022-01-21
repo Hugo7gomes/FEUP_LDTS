@@ -95,7 +95,7 @@ Implementation wise, we have a classe (GameStateManager) that manages all the st
   <img src="docs/images/UML/StatePattern.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 1. State pattern design</i></b>
+  <b><i>Fig 4. State pattern design</i></b>
 </p>
 
 #### Consequences:
@@ -112,7 +112,7 @@ To build our arena, we used the Factory Pattern, reading the information from th
   <img src="docs/images/UML/FactoryPattern.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 1. Factory pattern design</i></b>
+  <b><i>Fig 5. Factory pattern design</i></b>
 </p>
 
 #### Consequences:
