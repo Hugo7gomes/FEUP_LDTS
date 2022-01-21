@@ -34,12 +34,18 @@ public class Game implements Runnable{
 
 
     public void run(){
+        int FPS = 45;
+        int frameTime = 1000 / FPS;
         while(true){
+            long startTime = System.currentTimeMillis();
             try {
                 update();
                 draw();
                 gsm.notifyCurrentState(screen.pollInput());
-                Thread.sleep(20);
+                long elapsedTime = System.currentTimeMillis() - startTime;
+                long sleepTime = frameTime - elapsedTime;
+                if(sleepTime > 0)
+                    Thread.sleep(sleepTime);
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
