@@ -56,6 +56,7 @@ public class LevelSelectState implements State{
                     currentChoice = 1;
                 }
             }
+            default->{}
         }
     }
 

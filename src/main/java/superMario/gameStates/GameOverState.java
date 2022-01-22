@@ -65,6 +65,7 @@ public class GameOverState implements State{
                     currentChoice = 1;
                 }
             }
+            default->{}//Aviso errorprone switch nao lida com todos os casos
         }
     }
 

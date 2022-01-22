@@ -17,6 +17,7 @@ import superMario.gameStates.LevelState
 
 
 class LevelStateSpockTest extends Specification{
+
     def 'Collision Block under Player'(){
         given:
         Block b = new BrickBlock(20,10)
@@ -173,6 +174,22 @@ class LevelStateSpockTest extends Specification{
 
         then:
             gsm.getCurrentState() == 4
+    }
+
+    def 'Player loses'(){
+        GameStateManager gsm = new GameStateManager()
+        given:
+            LevelState level = new LevelState(gsm)
+            Player p = new Player(20,8)
+            level.setPlayer(p)
+            FinalFlag flag = new FinalFlag(20,18)
+            level.setFlag(flag)
+            p.setLives(0)
+        when:
+            level.update()
+
+        then:
+            gsm.getCurrentState() == 3
     }
 
 }

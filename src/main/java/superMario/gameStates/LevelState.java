@@ -15,9 +15,12 @@ import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.UncheckedIOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class LevelState implements State{
     private GameStateManager gsm;
@@ -149,16 +152,16 @@ public class LevelState implements State{
         int row = 0;
         try {
             File mapFile = new File("Level" + level + ".txt");
-            Scanner read = new Scanner(mapFile);
+            Scanner read = new Scanner(mapFile, UTF_8.name());
             while (read.hasNextLine()){
                 String line = read.nextLine();
                 for(int i = 0; i < line.length(); i++){
-                    if(Character.getNumericValue(line.charAt(i)) == 6){
+                    if(Character.digit(line.charAt(i),10) == 6){
                         FinalFlag flag = new FinalFlag(0, i*8);
                         this.flag = flag;
                     }
-                    Block b = blockFactory.makeBlock(Character.getNumericValue(line.charAt(i)), row * 5, i * 8);
-                    Enemy e = enemyFactory.makeEnemy(Character.getNumericValue(line.charAt(i)), row * 5, i *8);
+                    Block b = blockFactory.makeBlock(Character.digit(line.charAt(i),10), row * 5, i * 8);
+                    Enemy e = enemyFactory.makeEnemy(Character.digit(line.charAt(i),10), row * 5, i *8);
                     if(b!= null){
                         blocks.add(b);
                         b.setVisible(true);
@@ -171,7 +174,7 @@ public class LevelState implements State{
                 row++;
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            throw new UncheckedIOException(e);
         }
     }
 

@@ -39,7 +39,9 @@ public class InstructionsState implements State{
     public void keyPressed(KeyStroke key) {
         switch (key.getKeyType()){
             case Enter -> gsm.setState(0);
+            default->{}//Aviso errorprone switch nao lida com todos os casos
         }
+
     }
 
     @Override

@@ -5,23 +5,15 @@ import com.googlecode.lanterna.input.KeyStroke;
 import java.util.ArrayList;
 import java.util.List;
 
+/*(0)MENUSTATE, (1)SELECTLEVELSTATE,(2)INSTRUCTSTATE,(3)GAMEOVERSTATE,(4)WINSTATE,(5)LEVELSTATE*/
 public class GameStateManager {
     private List<State> gameStates;
     private int currentState;
 
-    private int MENUSTATE = 0;
-    private int SELECTLEVELSTATE = 1;
-    private int INSTRUCTSTATE = 2;
-    private int GAMEOVERSTATE = 3;
-    private int WINSTATE = 4;
-    private int LEVELSTATE = 5;
-
-
-
     public GameStateManager(){
         gameStates = new ArrayList<State>();
 
-        currentState = MENUSTATE;
+        currentState = 0;
 
         gameStates.add(new MenuState(this));
         gameStates.add(new LevelSelectState(this));

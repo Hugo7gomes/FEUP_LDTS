@@ -12,6 +12,7 @@ class InstructionsStateSpockTest extends Specification{
 
     def setup(){
         is = new InstructionsState(gsm)
+        gsm.setState(2)
     }
 
     def 'Enter input Test'(){

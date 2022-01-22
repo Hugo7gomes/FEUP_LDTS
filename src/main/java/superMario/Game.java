@@ -8,12 +8,12 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
+import java.io.UncheckedIOException;
 
-public class Game implements Runnable{
+public class Game {
     private Screen screen;
     private int TERMINALCOLS = 147;
     private int TERMINALROWS = 40;
-    private boolean isRunnig;
     private GameStateManager gsm;
 
     public Game(){
@@ -28,7 +28,8 @@ public class Game implements Runnable{
             screen.doResizeIfNecessary();
 
         } catch (IOException e){
-            e.printStackTrace();
+            throw new UncheckedIOException(e);
+
         }
     }
 
