@@ -122,4 +122,46 @@ Benefits of using this pattern:
 - Single Responsibility Principle. You can move the product creation code into one place in the program, making the code easier to support.
 - Open/Closed Principle. You can introduce new types of products into the program without breaking existing client code.
 
-In the future, other patterns will be applied to our project.
+
+
+## Known Code Smells
+
+#### Large Class
+Some classes (eg.: LevelState) contain many methods. We find it justifiable as the classes require these fields. 
+Because the LevelState class is the main class of our program it needs to store a considerable amount of data and various 
+methods are needed in order to the game work. It wouldn't make sense to split it into two separate ones (extract method).
+
+#### Lazy Classes
+The BrickBlock, GrassBlock and StairBlock classes don't do almost anything, they're only used to draw the blocks.
+Because we used the Factory Method which creates the blocks dynamically neither the Inline Class nor the Collapse Hierarchy treatments would be appropriate.
+
+#### Refused bequest
+In order to generalize and simplify our code, we created various abstract classes. As a result, some subclasses inherited methods 
+from its parent classes that are not used. For example, FinalFlag Class, the Enemy Class and the LevelState Class.
+
+#### Long method
+As we decided to represent our elements as basic text images, in which every character is filled with different colours
+based on the image desired, the methods responsible for this turned out to have many lines.
+
+#### Message Chains
+When the Game is called, it calls the GameStateManager and if the current state is the LevelState, the Player and consequently the Position are called.
+Even though this generates a chain, it is necessary for the game flow. 
+
+## Testing
+### Screenshot of coverage report
+<p align="center" justify="center">
+  <img src="docs/images/testCoverage.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 6. Test Coverage</i></b>
+</p>
+
+### Link to mutation testing report
+[Mutation tests](../build/reports/pitest/202201212340/index.html)
+
+### Self-evaluation
+The work was equally divided between the group members.
+
+- Hugo Gomes: 33.3%
+- Lia Vieira: 33.3%
+- João Moreira: 33.3%
