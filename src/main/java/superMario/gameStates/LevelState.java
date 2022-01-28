@@ -53,6 +53,7 @@ public class LevelState implements State{
             e.setRelativePosition(player.getPosition());
         }
     }
+
     @Override
     public void update() {
 

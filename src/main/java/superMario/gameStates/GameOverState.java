@@ -70,9 +70,7 @@ public class GameOverState implements State{
     }
 
     @Override
-    public void keyReleased() {
-
-    }
+    public void keyReleased() {}
 
     public int getCurrentChoice() {
         return currentChoice;
