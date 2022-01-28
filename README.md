@@ -10,7 +10,7 @@ The following screenshots ilustrate the general look of our game, as well as the
 ### Game preview
 
 ![Sneakpeak](docs/images/gif.gif)
-<p align="center">
+<p align="center" justify="center">
   <b><i>Gif 1. Sneak peak into Super Mario game</i></b>
 </p>
 <br>
