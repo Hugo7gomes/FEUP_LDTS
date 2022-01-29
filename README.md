@@ -157,7 +157,7 @@ Even though this generates a chain, it is necessary for the game flow.
 </p>
 
 ### Link to mutation testing report
-[Mutation tests](../build/reports/pitest/202201212340/index.html)
+[Mutation tests](../reports/pitest/202201212340/index.html)
 
 ### Self-evaluation
 The work was equally divided between the group members.
