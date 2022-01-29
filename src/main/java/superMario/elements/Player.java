@@ -29,7 +29,7 @@ public class Player extends Element{
 
     @Override
     public void draw(TextGraphics textGraphics) {
-        TerminalPosition positionTerminal = new TerminalPosition((140)/2,position.getY());
+        TerminalPosition positionTerminal = new TerminalPosition(140/2,position.getY());
         if(isLeft){
             textGraphics.drawImage(positionTerminal, imageLeft);
         }else{
@@ -68,6 +68,9 @@ public class Player extends Element{
                 else{
                     jump();
                 }
+            }
+            default ->{
+                break;
             }
         }
     }
@@ -141,9 +144,7 @@ public class Player extends Element{
 
     public TextImage buildImageLeft() {
         TextCharacter bg = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("#87CEFA"), SGR.BOLD);
-        TextCharacter red1 = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("#9A2A2A"), SGR.BOLD);
         TextCharacter red = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("#8B0000"), SGR.BOLD);
-        TextCharacter green = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("#006400"), SGR.BOLD);
         TextCharacter blue = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("#4169E1"), SGR.BOLD);
         TextCharacter yellow = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("#FFFACD"), SGR.BOLD);
         TextCharacter black = new TextCharacter(' ', TextColor.Factory.fromString("RED"),TextColor.Factory.fromString("BLACK"), SGR.BOLD);
