@@ -1,6 +1,6 @@
 # LDTS_T06_G02 - Super Mario
 
-##Developed by: </br>
+## Developed by: </br>
 * [Hugo Gomes](https://github.com/Hugo7gomes) </br>
 * [Lia Silva](https://github.com/liavieir) </br>
 * [João Moreira](https://github.com/up202005035) </br>
