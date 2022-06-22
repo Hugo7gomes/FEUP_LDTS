@@ -1,5 +1,10 @@
 # LDTS_T06_G02 - Super Mario
 
+##Developed by: </br>
+* [Hugo Gomes](https://github.com/Hugo7gomes) </br>
+* [Lia Silva](https://github.com/liavieir) </br>
+* [João Moreira](https://github.com/up202005035) </br>
+
 ## Game Description
 
 The Super Mario is a 2D platformer based game where you have to race through a map and reach a flag in order to win. The map is full of enemies, blocks and platforms. The "hero" can run and jump. If he touches any of the enemies, he will lose a life. After 3 lives lost, he dies.
